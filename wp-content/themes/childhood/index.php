@@ -72,15 +72,15 @@
     <div class="container">
       <div class="row">
         <div class="col-md-10 offset-md-1 col-lg-5 offset-lg-1">
-          <div class="about__img">
+          <!-- <div class="about__img">
             <img src="<?php the_field('section-about_image') ?>" alt="про компанию">
-          </div>
+          </div> -->
           <div class="about__img">
             <?php
-            $image = get_field('section-about_image_2');
+            $about_image = get_field('section-about_image_2');
 
-            if (!empty($image)): ?>
-              <img src="<?php echo $image['url']; ?>" alt="<?php echo $image['alt']; ?>" width="<?php echo $image['width']; ?>" height="<?php echo $image['height']; ?>">
+            if (!empty($about_image)): ?>
+                                  <img src="<?php echo $about_image['url']; ?>" alt="<?php echo $about_image['alt']; ?>" width="<?php echo $about_image['width']; ?>" height="<?php echo $about_image['height']; ?>">
             <?php endif;
             ?>
           </div>
@@ -89,11 +89,16 @@
           <h1 class="title underlined">
             <?php the_field('section-about_title'); ?>
           </h1>
-          <div class="about__text rte">
-            <?php the_field('section-about_description'); ?>
-          </div>
+          <?php
+          $about_description = get_field('section-about_description');
+
+          if (!empty($about_description)): ?>
+                            <div class="about__text rte">
+                              <?php echo $about_description; ?>
+                            </div>
+          <?php endif; ?>
           <a href="<?php the_field('section-about_link'); ?>" class="button">
-            <?php the_field('section-about_link_text'); ?>
+            <?php the_field('section-about_link-text'); ?>
           </a>
         </div>
       </div>
@@ -101,14 +106,21 @@
   </div>
 
   <div class="specialists" id="specialists">
-      <div class="container">
-          <div class="title">Наша команда</div>
-          <div class="row">
-              <div class="col-lg-10 offset-lg-1">
-                  <img class="specialists__img" src="<?php echo bloginfo('template_url'); ?>/assets/img/team.jpg" alt="наша команда">
-              </div>
-          </div>
+    <div class="container">
+      <div class="title">
+        <?php the_field('section-specialists_title'); ?>
       </div>
+      <div class="row">
+        <div class="col-lg-10 offset-lg-1">
+          <?php
+          $section_specialists_image = get_field('section-specialists_image');
+
+          if (!empty($section_specialists_image)): ?>
+                      <img src="<?php echo $section_specialists_image['url']; ?>" alt="<?php echo $section_specialists_image['alt']; ?>" width="<?php echo $section_specialists_image['width']; ?>" class="specialists__img" height="<?php echo $section_specialists_image['height']; ?>">
+          <?php endif; ?>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="toys" id="toys">
@@ -208,19 +220,24 @@
       </div>
   </div>
 
-  <div class="aboutus" id="aboutus">
+  <section class="aboutus" id="aboutus">
       <div class="container">
-          <h1 class="title">Наша история</h1>
+          <h1 class="title">
+            <?php the_field('history_section_title'); ?>
+          </h1>
           <div class="row">
               <div class="col-lg-6">
-                  <div class="subtitle">
-                      Все начиналось с желания
-                  </div>
-                  <div class="aboutus__text">
-                      Желания сделать как можно больше детей счастливыми. Именно с этой идеи все и зарождалось.
-                      <br><br>
-                      Первые игрушки, сделанные вручную были классическими плюшевыми медведями, которые разошлись настолько быстро, что нас завалили заказами на несколько месяцев вперед. Именно в то время мы поняли, что идем правильным путем, вкладывая все силы и эмоции в наши игрушки.
-                  </div>
+                <div class="subtitle">
+                  <?php the_field('image_with_text_title'); ?>
+                </div>
+                <?php
+                $image_with_text_description_1 = get_field('image_with_text_description');
+
+                if (!empty($image_with_text_description_1)): ?>
+                      <div class="aboutus__text rte">
+                        <?php echo $image_with_text_description_1; ?>
+                      </div>
+                <?php endif; ?>
               </div>
               <div class="col-lg-6">
                   <img class="aboutus__img" src="<?php echo bloginfo('template_url'); ?>/assets/img/about_1.jpg" alt="мир детства">
@@ -259,7 +276,7 @@
               </div>
           </div>
       </div>
-  </div>
+  </section>
 
   <div class="contacts" id="contacts">
       <h1 class="title">Где нас найти</h1>
