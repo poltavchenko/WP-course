@@ -2510,7 +2510,8 @@ footer {
 }
 
 .contacts__mail a {
-  display: block;
+  display: inline-block;
+  vertical-align: top;
   font-weight: 700;
   text-decoration: none;
   color: #000;
