@@ -11,7 +11,7 @@ role="main"
     >
       <ul class="glide__slides">
         <?php
-        $my_posts = get_posts(
+        $slider_posts = get_posts(
           array(
             'numberposts' => -1,
             'category_name' => 'slider',
@@ -24,7 +24,7 @@ role="main"
 
         global $post;
 
-        foreach ($my_posts as $post) {
+        foreach ($slider_posts as $post) {
           setup_postdata($post);
           ?>
           <li
@@ -191,7 +191,7 @@ role="main"
       <div class="toys__wrapper">
 
         <?php
-        $my_posts = get_posts(
+        $soft_toys_posts = get_posts(
           array(
             'numberposts' => -1,
             'category_name' => 'soft_toys',
@@ -204,7 +204,7 @@ role="main"
 
         global $post;
 
-        foreach ($my_posts as $post) {
+        foreach ($soft_toys_posts as $post) {
           setup_postdata($post);
           ?>
           <div
@@ -239,10 +239,10 @@ role="main"
       <h2 class="subtitle">Развивающие игрушки</h2>
       <div class="toys__wrapper">
         <?php
-        $my_posts = get_posts(
+        $education_toys_posts = get_posts(
           array(
             'numberposts' => -1,
-            'category_name' => 'soft_toys',
+            'category_name' => 'education_toys',
             'orderby' => 'date',
             'order' => 'ASC',
             'post_type' => 'post',
@@ -252,7 +252,7 @@ role="main"
 
         global $post;
 
-        foreach ($my_posts as $post) {
+        foreach ($education_toys_posts as $post) {
           setup_postdata($post);
           ?>
           <div
@@ -375,12 +375,13 @@ role="main"
     </div>
   </section>
 
-  <div
+  <section
   class="contacts"
   id="contacts"
   >
     <h1 class="title">Где нас найти</h1>
     <div class="container">
+      <!-- map block -->
       <div class="row">
         <div class="col-lg-6">
           <div class="contacts__descr underlined">
@@ -398,6 +399,8 @@ role="main"
           </div>
         </div>
       </div>
+
+      <!-- contact block -->
       <div class="row">
         <div class="col-md-6">
           <div class="title contacts__minititle">Свяжитесь с нами</div>
@@ -726,6 +729,7 @@ role="main"
             </div>
             <div class="contacts__mail">
               Или напишите нам на почту
+              <br>
               <a href="mailto:mirdetstva@gmail.com">mirdetstva@gmail.com</a>
             </div>
           </div>
@@ -1308,6 +1312,8 @@ role="main"
           </form>
         </div>
       </div>
+
+      <!-- reviews gallery -->
       <div class="row mt70">
         <div class="col-lg-8 offset-lg-2">
           <div class="title">отзывы</div>
@@ -1317,42 +1323,38 @@ role="main"
             data-glide-el="track"
             >
               <ul class="glide__slides">
-                <li class="glide__slide">
-                  <div class="feedslider__title">
-                    Иванов Игорь
-                  </div>
-                  <div class="feedslider__text">
-                    Спасибо огромное за вежливость и терпение. Обратился к вам
-                    только с идеей для подарка, а вы развили её до полноценного
-                    проекта! Так что мой сын теперь круглые сутки играет с
-                    железной дорогой, построенной по его планам)
-                    <br><br>
-                    Отдельное спасибо менеджеру Маргарите за терпение и
-                    стойкость!
-                  </div>
-                </li>
-                <li class="glide__slide">
-                  <div class="feedslider__title">
-                    Черкессов Алексей Дмитриевич
-                  </div>
-                  <div class="feedslider__text">
-                    Заказывал у ребят целую партию игрушек для детского сада.
-                    Новый год прошел на ура! Теперь все детишки счастливы и не
-                    расстаются со своими подарками, а самые хитрые спрашивают
-                    когда следующие праздники)
-                  </div>
-                </li>
-                <li class="glide__slide">
-                  <div class="feedslider__title">
-                    Анна Сергеевна
-                  </div>
-                  <div class="feedslider__text">
-                    Решила к дню рождения своей малышки заказать подарки здесь.
-                    И ни сколько не жалею! Мишка именно такой, как я хотела,
-                    прямо как у меня в детстве: мягкий, приятный на ощупь и
-                    оочень милый. Сразу видно, что ручная работа.
-                  </div>
-                </li>
+
+                <?php
+                $reviews_posts = get_posts(
+                  array(
+                    'numberposts' => -1,
+                    'category_name' => 'reviews',
+                    'orderby' => 'date',
+                    'order' => 'ASC',
+                    'post_type' => 'post',
+                    'suppress_filters' => true,
+                  )
+                );
+
+                global $post;
+
+                foreach ($reviews_posts as $post) {
+                  setup_postdata($post);
+                  ?>
+                  <li class="glide__slide">
+                    <div class="feedslider__title">
+                      <?php the_field('reviews_author'); ?>
+                    </div>
+                    <div class="feedslider__text">
+                      <?php the_field('reviews_text'); ?>
+                    </div>
+                  </li>
+                  <?php
+                }
+
+                wp_reset_postdata();
+                ?>
+
               </ul>
             </div>
 
@@ -1360,7 +1362,7 @@ role="main"
         </div>
       </div>
     </div>
-  </div>
+  </section>
 </main>
 
 <?php get_footer(); ?>
