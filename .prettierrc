@@ -3,7 +3,6 @@
   "tabWidth": 2,
   "semi": true,
   "singleQuote": true,
-  "jsxSingleQuote": false,
   "useTabs": false,
   "printWidth": 120,
   "singleAttributePerLine": true,
@@ -28,6 +27,6 @@
       }
     }
   ],
-  "plugins": ["prettier-plugin-tailwindcss"],
+  "plugins": ["prettier-plugin-tailwindcss", "@prettier/plugin-php"],
   "pluginSearchDirs": ["./node_modules"]
 }
