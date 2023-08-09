@@ -7735,3 +7735,20 @@ footer {
     padding: 30px 15px 24px
   }
 }
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+.rte {
+
+  & p {
+    margin-bottom: 20px;
+  }
+
+  & p:last-child {
+    margin-bottom: 0;
+  }
+}

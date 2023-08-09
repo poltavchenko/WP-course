@@ -7,7 +7,9 @@
   http-equiv="X-UA-Compatible"
   content="IE=edge"
   >
-  <title><?php echo get_bloginfo('name'); ?></title>
+  <title>
+    <?php echo get_bloginfo('name'); ?>
+  </title>
   <meta
   name="description"
   content="<?php echo get_bloginfo('description'); ?>"
@@ -106,9 +108,11 @@
               class="header__contacts-logo"
               >
               <a
-              href="mailto:mirdetstva@gmail.com"
+              href="mailto:<?php the_field('header_email'); ?>"
               class="header__contacts-mail"
-              >mirdetstva@gmail.com</a>
+              >
+                <?php the_field('header_email', 2); ?>
+              </a>
             </div>
             <div class="header__contacts-item">
               <img
@@ -117,8 +121,12 @@
               class="header__contacts-logo"
               >
               <div class="header__contacts-tel">
-                <a href="tel:+797867834347">+797867834347</a>
-                <a href="tel:+797867834358">+797867834358</a>
+                <a href="tel:<?php the_field('header_phone_1', 2); ?>">
+                  <?php the_field('header_phone_1', 2); ?>
+                </a>
+                <a href="tel:<?php the_field('header_phone_2', 2); ?>">
+                  <?php the_field('header_phone_2', 2); ?>
+                </a>
               </div>
             </div>
             <div class="header__contacts-item">
@@ -127,8 +135,9 @@
               alt="указатель"
               class="header__contacts-logo"
               >
-              <address>ул. Василисы Кожиной, 1<br>
-                Москва, Россия, 121096</address>
+              <address>
+                <?php the_field('header_address', 2); ?>
+              </address>
             </div>
           </div>
         </div>
