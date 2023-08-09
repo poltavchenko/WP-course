@@ -9,12 +9,6 @@
   "htmlWhitespaceSensitivity": "ignore",
   "overrides": [
     {
-      "files": ["**/*.php"],
-      "options": {
-        "singleQuote": false
-      }
-    },
-    {
       "files": ["**/*.scss"],
       "options": {
         "singleQuote": false
