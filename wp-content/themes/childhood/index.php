@@ -4,6 +4,7 @@
 id="main"
 role="main"
 >
+  <!-- mainslider -->
   <div class="mainslider glide">
     <div
     class="glide__track"
@@ -105,10 +106,8 @@ role="main"
     </div>
   </div>
 
-  <div
-  class="about"
-  id="about"
-  >
+  <!-- about -->
+  <div class="about">
     <div class="container">
       <div class="row">
         <div class="col-md-10 offset-md-1 col-lg-5 offset-lg-1">
@@ -155,10 +154,8 @@ role="main"
     </div>
   </div>
 
-  <div
-  class="specialists"
-  id="specialists"
-  >
+  <!-- our team -->
+  <div class="specialists">
     <div class="container">
       <div class="title">
         <?php the_field('section-specialists_title'); ?>
@@ -182,10 +179,7 @@ role="main"
     </div>
   </div>
 
-  <div
-  class="toys"
-  id="toys"
-  >
+  <div class="toys">
     <div class="container">
       <h2 class="subtitle">Мягкие игрушки</h2>
       <div class="toys__wrapper">
@@ -235,7 +229,6 @@ role="main"
         ?>
       </div>
 
-
       <h2 class="subtitle">Развивающие игрушки</h2>
       <div class="toys__wrapper">
         <?php
@@ -283,6 +276,7 @@ role="main"
         ?>
 
       </div>
+
       <div class="row">
         <div class="col-lg-10 offset-lg-1">
           <div class="toys__alert">
@@ -292,13 +286,12 @@ role="main"
           </div>
         </div>
       </div>
+
     </div>
   </div>
 
-  <section
-  class="aboutus"
-  id="aboutus"
-  >
+  <!-- about us -->
+  <section class="aboutus">
     <div class="container">
       <h1 class="title">
         <?php the_field('history_section_title'); ?>
@@ -336,33 +329,32 @@ role="main"
         </div>
         <div class="col-lg-6">
           <div class="subtitle">
-            Главное - качество
+            <?php the_field('image_with_text_title_2'); ?>
           </div>
-          <div class="aboutus__text">
-            Мы делали их вручную, из лучших материалов и не жалея времени. Но мы
-            росли и наш ассортимент расширился и фабричными изделиями.
-            <br><br>
-            Выбирая нас, вы можете быть уверены, что мы всегда следим за
-            качеством закупок и никогда не предоставим вам опасный или
-            некачественный товар.
-          </div>
+          <?php
+          $image_with_text_description_2 = get_field('image_with_text_description_2');
+
+          if (!empty($image_with_text_description_2)): ?>
+            <div class="aboutus__text rte">
+              <?php echo $image_with_text_description_2; ?>
+            </div>
+          <?php endif; ?>
         </div>
       </div>
 
       <div class="row">
         <div class="col-lg-6">
           <div class="subtitle">
-            Современные технологии
+            <?php the_field('image_with_text_title_3'); ?>
           </div>
-          <div class="aboutus__text">
-            И даже спустя столько лет мы продолжаем создавать игрушки вручную.
-            Как самые простые, так и те, что идут в ногу со временем. Добавляя
-            электроники и оживляя лучших друзей ребятишек, мы всегда следим за
-            качеством и безопасностью. Каждая отдельная игрушка проходит
-            индивидуальный контроль по всем необходимым стандартам.
-            <br><br>
-            Ведь счастливое лицо ребенка - это лучшая награда для нас!
-          </div>
+          <?php
+          $image_with_text_description_3 = get_field('image_with_text_description_3');
+
+          if (!empty($image_with_text_description_3)): ?>
+            <div class="aboutus__text rte">
+              <?php echo $image_with_text_description_3; ?>
+            </div>
+          <?php endif; ?>
         </div>
         <div class="col-lg-6">
           <img
