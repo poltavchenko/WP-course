@@ -76,7 +76,7 @@
 
 </head>
 
-<body class="no-svg">
+<body class="no-svg1">
   <header>
     <div class="container">
       <div class="row align-items-center">
@@ -146,38 +146,17 @@
       class="row"
       data-slide="1"
       >
-        <ul class="header__nav">
-          <li>
-            <a
-            class="header__nav-item"
-            href="#about"
-            >Про компанию</a>
-          </li>
-          <li>
-            <a
-            class="header__nav-item"
-            href="#specialists"
-            >Наша команда</a>
-          </li>
-          <li>
-            <a
-            class="header__nav-item"
-            href="#toys"
-            >Игрушки</a>
-          </li>
-          <li>
-            <a
-            class="header__nav-item"
-            href="#aboutus"
-            >Наша история</a>
-          </li>
-          <li>
-            <a
-            class="header__nav-item"
-            href="#contacts"
-            >Контакты и отзывы</a>
-          </li>
-        </ul>
+        <?php
+        wp_nav_menu([
+          'menu' => 'Main',
+          'container' => false,
+          'menu_class' => 'header__nav',
+          'echo' => true,
+          'fallback_cb' => 'wp_page_menu',
+          'items_wrap' => '<ul class="%2$s">%3$s</ul>',
+          'depth' => 1
+        ]);
+        ?>
       </nav>
     </div>
     <div class="header__hamburger">
