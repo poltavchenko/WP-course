@@ -29,7 +29,7 @@ code,
 kbd,
 pre,
 samp {
-  font-family: monospace, monospace;
+  font-family: monospace;
   font-size: 1em
 }
 
@@ -2014,7 +2014,8 @@ footer {
   text-align: right
 }
 
-.button {
+.button,
+.wp-block-button__link {
   display: inline-block;
   height: 45px;
   background: #3f3689;
@@ -2037,7 +2038,8 @@ footer {
   outline: 0
 }
 
-.button:hover {
+.button:hover,
+.wp-block-button__link:hover {
   -webkit-box-shadow: 8px 8px 30px rgba(63, 54, 137, .6);
   box-shadow: 8px 8px 30px rgba(63, 54, 137, .6);
   -webkit-transform: scale(1.01);

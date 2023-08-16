@@ -11,7 +11,7 @@ Template Post Type: page
 id="main"
 role="main"
 >
-<div class="toys">
+  <div class="toys">
     <div class="container">
       <h2 class="subtitle">Мягкие игрушки</h2>
       <div class="toys__wrapper">
@@ -51,7 +51,7 @@ role="main"
               <div class="toys__item-descr">
                 <?php the_field('toys_description'); ?>
               </div>
-              <div class="minibutton toys__trigger">Подробнее</div>
+              <a href="<?php echo get_permalink(); ?>" class="minibutton toys__trigger">Подробнее</a>
             </div>
           </div>
           <?php
@@ -99,7 +99,7 @@ role="main"
               <div class="toys__item-descr">
                 <?php the_field('toys_description'); ?>
               </div>
-              <div class="minibutton toys__trigger">Подробнее</div>
+              <a href="<?php echo get_permalink(); ?>" class="minibutton toys__trigger">Подробнее</a>
             </div>
           </div>
           <?php
